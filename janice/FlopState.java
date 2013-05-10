@@ -30,12 +30,15 @@ public class FlopState extends State {
 		return pot;
 	}
 	
-	public ResultState getTransition(int botAction) {
-		return new ResultState(???);
+	public ResultState getTransition(int botAction, int index) {
+		// return resulting state given an action (and which one of the random decisions)
 	}
 	
 	public boolean validCards(int[] opphand) {
 		// return false if any cards overlap with bothand or flop
 	}
 
+	public boolean validActions(int botAction) {
+		// returns false if invalid set of opponent-bot actions
+	}
 }

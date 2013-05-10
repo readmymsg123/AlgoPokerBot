@@ -6,8 +6,6 @@ public class ResultState extends State {
 	private int opphand[];
 	private int pot;
 	
-	// later on: store previous actions of bot and opponent for more sophisticated strategies
-	
 	public ResultState() {
 		bothand = new int[2];
 		board = new int[3];

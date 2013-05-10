@@ -16,9 +16,9 @@ actions are also integers. 0 = fold, 1 = check, 2 = bet/raise, 3 = call
 simple todos:
 use enums for actions
 use constants like numFlopPerPreflop to avoid multiplying at every for loop check
-figure out what to store in abstract state?
 
-cant think right now: for transitions maybe each class can store a map. 
+less simple todo: figure out how to store transitions
+maybe each class can store a map. 
 map action -> arraylist of resulting states
 
 */
@@ -84,6 +84,9 @@ public class Bot {
 		// winnings = pot or 0
 		
 		// in this system, the only transitions that have rewards are the results
+		// also, this loop can actually be simplified because all actions go in
+		// one direction. but we might need this later when our model becomes
+		// more complicated. 
 		for (int h = 1; h < 3; h++) {
 			
 			float maxvalue = 0;
@@ -114,14 +117,14 @@ public class Bot {
 				flops[s].setValue(h, maxvalue);
 			}
 			
-			// we dont need ot recalculate v(resulting states)
+			// we dont need to recalculate v(resulting states)
 			for (int s = 0; s < numResultStates; s++) {
 				results[s].setValue(h, results[s].getValue(h-1));
 			}
 			
 		}
 			
-		// now to return a list of actions?
+		// TODO: return policy, given the values
 		
 	}
 }
